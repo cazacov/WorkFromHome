@@ -1,21 +1,19 @@
 // include library
 #include "display.h"
+#include "gameoflife.h"
 
 Display display;
+Game game(&display);
 
 void setup() {
   display.clear();
+  game.init();
+  game.put_glider(12, 5);
+  game.show(CRGB::Gold);
 }
 
 
 void loop() {
-  
-  for (byte y = 0; y < display.height(); y++) {
-    for (byte x = 0; x < display.width(); x++) {      
-      display.set_pixel(x, y, CRGB::Red);
-      display.show();
-      FastLED.delay(10);  
-      display.set_pixel(x, y, CRGB::Black);
-    }
-  }
+  game.next_step(CRGB::Gold);
+  delay(50);
 }

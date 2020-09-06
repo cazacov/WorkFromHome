@@ -1,3 +1,7 @@
+#ifndef _DISPLAY_h
+#define _DISPLAY_h
+
+
 #include<FastLED.h>
 
 //define number of LED and pin
@@ -16,3 +20,5 @@ public:
   int width() { return DISPLAY_WIDTH;}
   int height() { return DISPLAY_HEIGHT;}
 };
+
+#endif
