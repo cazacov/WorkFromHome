@@ -1,3 +1,6 @@
+#ifndef _GAMEOFLIFE_h
+#define _GAMEOFLIFE_h
+
 #include "display.h"
 
 class Game {
@@ -17,3 +20,5 @@ public:
   void next_step(CRGB color);
   void show(CRGB color);
 };
+
+#endif
