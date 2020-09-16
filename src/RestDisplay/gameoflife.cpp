@@ -10,7 +10,7 @@ void Game::init() {
   }
 }
   
-void Game::next_step(CRGB color) {
+void Game::next_step(uint32_t color) {
 
   for (int8_t y = 0; y < maxy; y++) {
     for (int8_t x = 0; x < maxx; x++) {
@@ -71,14 +71,14 @@ void Game::put_glider(byte x, byte y) {
   set_cell(x+1, y+2, true);
 }
 
-void Game::show(CRGB color) {
+void Game::show(uint32_t color) {
   byte x = 0;
   byte y = 0;  
   for (int i = 0; i < maxx*maxy; i++) {
     if (field[i]) {
       display->set_pixel(x, y, color);
     } else {
-      display->set_pixel(x, y, CRGB::Black);
+      display->set_pixel(x, y, 0);
     }
     x++;
     if (x == maxx) { x = 0; y++;}

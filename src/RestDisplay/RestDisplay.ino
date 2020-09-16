@@ -1,10 +1,9 @@
 // include library
 #include "display.h"
-#include "gameoflife.h"
+//#include "gameoflife.h"
 #include "langtons_ant.h"
 
 Display display;
-//Game game(&display);
 LangtonsAnt game(&display);
 
 void setup() {
@@ -14,6 +13,6 @@ void setup() {
 
 
 void loop() {
-  game.next_step(CRGB::Gold);
-  delay(100);
+  game.next_step(0x00FFFF00);
+  //delay(100);
 }

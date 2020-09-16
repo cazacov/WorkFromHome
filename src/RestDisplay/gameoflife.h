@@ -17,8 +17,8 @@ public:
   Game(Display* _display) { this->display = _display; maxx = display->width(); maxy = display->height();}
   void init();
   void put_glider(byte x, byte y);
-  void next_step(CRGB color);
-  void show(CRGB color);
+  void next_step(uint32_t color);
+  void show(uint32_t color);
 };
 
 #endif

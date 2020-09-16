@@ -17,7 +17,7 @@ class LangtonsAnt {
 public:  
   LangtonsAnt(Display* _display) { this->display = _display; maxx = display->width(); maxy = display->height(); }
   void init();
-  void next_step(CRGB color);
+  void next_step(uint32_t color);
 };
 
 #endif

@@ -8,9 +8,10 @@ void LangtonsAnt::init() {
   direction = 3;
   x = maxx/2;
   y = maxy/2;
+  display->clear();
 }
 
-void LangtonsAnt::next_step(CRGB color) {
+void LangtonsAnt::next_step(uint32_t color) {
 
   bool cell_state = get_cell(x, y);
   
@@ -26,7 +27,7 @@ void LangtonsAnt::next_step(CRGB color) {
   // flip the color of the square
   bool new_state = !cell_state;
   set_cell(x, y, new_state);
-  display->set_pixel(x, y, new_state ? color : CRGB::Black);
+  display->set_pixel(x, y, new_state ? color : 0);
 
   // move forward one unit
   switch (direction) {
@@ -45,7 +46,7 @@ void LangtonsAnt::next_step(CRGB color) {
   }
   x = (x+maxx) % maxx;
   y = (y+maxy) % maxy;
-  display->set_pixel(x, y, CRGB::Green);
+  display->set_pixel(x, y, 0x0000FF00);
   display->show();
 }
 
