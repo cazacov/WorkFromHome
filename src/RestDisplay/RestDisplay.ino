@@ -13,6 +13,6 @@ void setup() {
 
 
 void loop() {
-  game.next_step(0x00FFFF00);
-  //delay(100);
+  game.next_step(COLOR_GOLD);
+  //delay(50);
 }

@@ -1,10 +1,7 @@
 #ifndef _DISPLAY_h
 #define _DISPLAY_h
 
-#include <Adafruit_NeoPixel.h>
-#ifdef __AVR__
-  #include <avr/power.h>
-#endif
+#include "display_defines.h"
 
 //define number of LED and pin
 #define DATA_PIN 13
@@ -13,11 +10,17 @@
 
 class Display {
 private:
+#ifdef DISPLAY_ADAFRUIT
   Adafruit_NeoPixel* pixels;
+#elif defined(DISPLAY_FASTLED)
+  CRGB leds[DISPLAY_WIDTH * DISPLAY_HEIGHT];
+#endif
+
+  
 public:
   Display();
   void clear();  
-  void set_pixel(byte x, byte y, uint32_t  color);
+  void set_pixel(byte x, byte y, COLOR_TYPE  color);
   void show();
   int width() { return DISPLAY_WIDTH;}
   int height() { return DISPLAY_HEIGHT;}

@@ -1,8 +1,8 @@
 #ifndef _LANGTONS_ANT_h
 #define _LANGTONS_ANT_h
 
-
 #include "display.h"
+#include "display_defines.h"
 
 class LangtonsAnt {
   Display* display;

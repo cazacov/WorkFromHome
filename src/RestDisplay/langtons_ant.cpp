@@ -1,7 +1,7 @@
 #include "langtons_ant.h"
   
 void LangtonsAnt::init() {
-  field = (bool*)malloc(maxx * maxy);
+  field = (bool*)malloc(sizeof(bool) * maxx * maxy);
   for (int i = 0; i < maxx*maxy; i++) {
     field[i] = false;
   }
@@ -46,7 +46,7 @@ void LangtonsAnt::next_step(uint32_t color) {
   }
   x = (x+maxx) % maxx;
   y = (y+maxy) % maxy;
-  display->set_pixel(x, y, 0x0000FF00);
+  display->set_pixel(x, y, COLOR_GREEN);
   display->show();
 }
 
