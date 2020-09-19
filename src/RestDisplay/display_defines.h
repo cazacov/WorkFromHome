@@ -18,8 +18,9 @@
 //#define COLOR_TYPE CRGB
 //#define COLOR_GOLD CRGB::Gold
 //#define COLOR_GREEN CRGB::Green
+#define COLOR_BLACK 0
 #define COLOR_GOLD 0x00808000
-#define COLOR_GREEN 0x00800000
+#define COLOR_ANT 0x00FFFFFF
 #define COLOR_TYPE uint32_t
 #endif
 

@@ -14,5 +14,5 @@ void setup() {
 
 void loop() {
   game.next_step(COLOR_GOLD);
-  //delay(50);
+  //delay(100);
 }
