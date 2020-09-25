@@ -18,6 +18,10 @@ private:
 public:
    LedDisplayGFX(uint16_t w, uint16_t h);
    void drawPixel(int16_t x, int16_t y, uint16_t color);
+   void startWrite() {};
+   void writePixel(int16_t x, int16_t y, uint16_t color);
+   void writeFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color);
+   void endWrite();
 };
 
 #endif

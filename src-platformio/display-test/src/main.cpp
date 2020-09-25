@@ -42,8 +42,9 @@ void loop() {
    xx = x;
    yy = y;
 
+   display.setTextWrap(false);
    display.setCursor(xx, yy);
-   display.setTextColor(0x07FF);
+   display.setTextColor(0x07E0);
    display.print("2020");
-   delay(500);
+   delay(5000);
 }

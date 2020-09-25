@@ -10,6 +10,11 @@ LedDisplayGFX::LedDisplayGFX(uint16_t w, uint16_t h) : Adafruit_GFX(w, h)
 
 void LedDisplayGFX::drawPixel(int16_t x, int16_t y, uint16_t color)
 {
+   writePixel(x, y, color);
+   FastLED.show();
+}
+
+void LedDisplayGFX::writePixel(int16_t x, int16_t y, uint16_t color) {
    if (x < 0 || x >= WIDTH)
    {
       return;
@@ -40,5 +45,14 @@ void LedDisplayGFX::drawPixel(int16_t x, int16_t y, uint16_t color)
 #endif
 
    leds[pos] = (r << 16) | (g << 8) | b;
+}
+   
+void LedDisplayGFX::endWrite() {
    FastLED.show();
+}
+
+void LedDisplayGFX::writeFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color) {
+   for (int16_t i = y; i < y + h; i++) {
+      writePixel(x, i, color);
+   }
 }
