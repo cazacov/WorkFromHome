@@ -37,7 +37,7 @@ void showTime() {
     String hoursStr = hours < 10 ? "0" + String(hours) : String(hours);
     String minuteStr = minutes < 10 ? "0" + String(minutes) : String(minutes);
 
-    display.writeFillRect(1, 2, 26, 10, 0);
+    display.fillRect(1, 2, 26, 10, 0);
 
     display.setCursor(2, 2);   
     display.print(hoursStr);
