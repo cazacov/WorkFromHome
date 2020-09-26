@@ -22,8 +22,8 @@ void showTime() {
   hours %= 24;
 
   if (seconds & 0x01) {
-    display.writePixel(14, 4, 0xF800);
-    display.writePixel(14, 6, 0xF800);
+    display.writePixel(14, 4, 0xFFE0);
+    display.writePixel(14, 6, 0xFFE0);
   }
   else {
     display.drawPixel(14, 4, 0);
@@ -37,11 +37,11 @@ void showTime() {
     String hoursStr = hours < 10 ? "0" + String(hours) : String(hours);
     String minuteStr = minutes < 10 ? "0" + String(minutes) : String(minutes);
 
-    display.fillRect(1, 2, 26, 10, 0);
-
+    display.fillRect(1, 2, 13, 8, 0);
     display.setCursor(2, 2);   
     display.print(hoursStr);
 
+    display.fillRect(15, 2, 13, 8, 0);
     display.setCursor(16, 2);   
     display.print(minuteStr);
     lastMinute = minutes;
