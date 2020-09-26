@@ -5,7 +5,7 @@
 #include "LedDisplayGFX.h"
 #include "credentials.h"
 
-LedDisplay display(28,12);
+LedDisplayGFX display(28,12);
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 3600, 60000);
@@ -18,18 +18,34 @@ void showTime() {
   int minutes = timeClient.getMinutes();
   int seconds = timeClient.getSeconds();
 
-  hours += 2;
+  hours += 1;
   hours %= 24;
 
   if (seconds & 0x01) {
-    display.writePixel(14, 5, 0xF800);
-    display.writePixel(14, 7, 0xF800);
+    display.writePixel(14, 4, 0xF800);
+    display.writePixel(14, 6, 0xF800);
   }
   else {
-    display.drawPixel(14, 5, 0);
-    display.drawPixel(14, 7, 0);
+    display.drawPixel(14, 4, 0);
+    display.drawPixel(14, 6, 0);
   }
   display.endWrite();
+
+  
+  if (minutes != lastMinute) {
+    display.setTextColor(0xF800);
+    String hoursStr = hours < 10 ? "0" + String(hours) : String(hours);
+    String minuteStr = minutes < 10 ? "0" + String(minutes) : String(minutes);
+
+    display.writeFillRect(1, 2, 26, 10, 0);
+
+    display.setCursor(2, 2);   
+    display.print(hoursStr);
+
+    display.setCursor(16, 2);   
+    display.print(minuteStr);
+    lastMinute = minutes;
+  }
 
 }
 
@@ -59,5 +75,5 @@ void setup() {
 void loop() {
   timeClient.update();
   showTime();
-  delay(500);
+  delay(200);
 }
